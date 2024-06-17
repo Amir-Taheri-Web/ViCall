@@ -7,7 +7,7 @@ const HomeLayout: FC<TLayout> = ({ children }) => {
   return (
     <div className="h-screen overflow-hidden">
       <NavBar />
-      <main>{children}</main>
+      {/* <main>{children}</main> */}
       <SideBar />
     </div>
   );

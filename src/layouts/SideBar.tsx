@@ -10,7 +10,7 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <aside className="bg-dark-2 h-full w-full lg:max-w-[264px] max-lg:w-fit p-6 max-sm:hidden sticky overflow-hidden">
+    <aside className="bg-dark-2 h-full w-full lg:max-w-[264px] max-lg:w-fit p-6 pt-10 max-sm:hidden sticky overflow-hidden mt-[72px]">
       <nav>
         <ul className="flex flex-col gap-6">
           {SIDEBAR_LINKS.map((item) => (
