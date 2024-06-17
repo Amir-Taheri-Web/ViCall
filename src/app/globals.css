@@ -90,4 +90,41 @@
 }
 
 @layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+.cl-socialButtonsProviderIcon__github {
+  filter: invert(1);
+}
+
+.cl-socialButtonsIconButton {
+  background-color: #252a41;
+}
+
+.cl-userButtonPopoverCard {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: #ffffff;
+}
+
+.cl-badge {
+  color: #ffffff;
+}
+
+.cl-navbarButton {
+  color: #ffffff;
+}
+
+.cl-formFieldInputShowPasswordButton {
+  color: #ffffff;
+}
+
+.cl-avatarImageActionsUpload {
+  color: #ffffff;
 }

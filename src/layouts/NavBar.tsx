@@ -8,6 +8,7 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/ui/sheet";
 import { SIDEBAR_LINKS } from "../constants/constants";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const NavBar = () => {
   const pathName = usePathname();
@@ -22,7 +23,11 @@ const NavBar = () => {
           </Link>
         </h1>
 
-        <div className="sm:hidden">
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        <div className="sm:hidden ml-4">
           <Sheet>
             <SheetTrigger asChild>
               <Image
