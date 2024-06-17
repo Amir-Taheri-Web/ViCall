@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { TLayout } from "@/types/types";
 import "./globals.css";
 import { FC } from "react";
+import AuthProvider from "@/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
 const RootLayout: FC<TLayout> = ({ children }) => {
   return (
     <html lang="en" className="bg-dark-1">
-      <body className={`${inter.className} min-h-fit`}>{children}</body>
+      <body className={`${inter.className} min-h-fit`}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 };
