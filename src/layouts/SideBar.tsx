@@ -26,7 +26,7 @@ const SideBar = () => {
                   alt={item.label}
                   width={25}
                   height={25}
-                  className="h-auto"
+                  className="h-auto max-lg:w-[33px]"
                 />
 
                 <span className="text-text-1 font-semibold text-lg max-lg:hidden">
