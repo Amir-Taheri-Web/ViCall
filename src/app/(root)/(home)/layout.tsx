@@ -7,8 +7,10 @@ const HomeLayout: FC<TLayout> = ({ children }) => {
   return (
     <div className="h-screen overflow-hidden">
       <NavBar />
-      {/* <main>{children}</main> */}
-      <SideBar />
+      <div className="flex h-full">
+        <SideBar />
+        <main className="mt-[72px] w-full px-10 py-10">{children}</main>
+      </div>
     </div>
   );
 };

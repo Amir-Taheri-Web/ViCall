@@ -31,6 +31,10 @@ const config = {
         },
       },
 
+      backgroundImage: {
+        hero: "url('/images/hero-background.png')",
+      },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
