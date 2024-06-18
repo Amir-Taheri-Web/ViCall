@@ -7,3 +7,10 @@ export type TSideBarLinks = {
   label: string;
   link: string;
 }[];
+
+export type TMeetingCard = {
+  icon: string;
+  title: string;
+  description: string;
+  bgColor: string;
+};
