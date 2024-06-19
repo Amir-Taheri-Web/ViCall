@@ -3,7 +3,7 @@ import loadingCircle from "@/public/icons/loading-circle.svg";
 
 const Loader = () => {
   return (
-    <div>
+    <div className="w-full flex-center">
       <Image
         src={loadingCircle}
         alt="loader"
