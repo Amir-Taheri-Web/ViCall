@@ -22,10 +22,17 @@ export type TMeetingCard = {
 export type TDialogProps = TLayout & {
   title: string;
   buttonText: string;
+  type: string;
   icon?: string;
   buttonIcon?: string;
   inputLabel?: string;
   input?: JSX.Element;
   textAreaLabel?: string;
   textArea?: JSX.Element;
+};
+
+export type TCallValues = {
+  dateTime: Date;
+  description: string;
+  link: string;
 };

@@ -4,7 +4,11 @@ import MeetingModal from "./MeetingModal";
 const MeetingTypeList = () => {
   return (
     <div className="grid grid-cols-4 justify-items-center max-2xl:grid-cols-2 max-md:grid-cols-1 gap-8">
-      <MeetingModal title="Start an Instant Meeting" buttonText="Start Meeting">
+      <MeetingModal
+        title="Start an Instant Meeting"
+        buttonText="Start Meeting"
+        type="new"
+      >
         <MeetingTypeCard
           icon="/icons/add-meeting.svg"
           title="New Meeting"
@@ -14,7 +18,11 @@ const MeetingTypeList = () => {
         />
       </MeetingModal>
 
-      <MeetingModal title="Create Meeting" buttonText="Schedule Meeting">
+      <MeetingModal
+        title="Create Meeting"
+        buttonText="Schedule Meeting"
+        type="schedule"
+      >
         <MeetingTypeCard
           icon="/icons/schedule.svg"
           title="Schedule Meeting"
@@ -32,7 +40,11 @@ const MeetingTypeList = () => {
         type="recordings"
       />
 
-      <MeetingModal title="Type the Link Here" buttonText="Join Meeting">
+      <MeetingModal
+        title="Type the Link Here"
+        buttonText="Join Meeting"
+        type="join"
+      >
         <MeetingTypeCard
           icon="/icons/join-meeting.svg"
           title="Join Meeting"

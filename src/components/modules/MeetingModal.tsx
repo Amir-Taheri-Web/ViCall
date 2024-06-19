@@ -1,8 +1,65 @@
-import { TDialogProps } from "@/types/types";
+import { TCallValues, TDialogProps } from "@/types/types";
 import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
-import { FC } from "react";
+import { FC, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { useStreamVideoClient, Call } from "@stream-io/video-react-sdk";
+import { useToast } from "@/ui/use-toast";
+import { useRouter } from "next/navigation";
 
-const MeetingModal: FC<TDialogProps> = ({ children, title, buttonText }) => {
+const MeetingModal: FC<TDialogProps> = ({
+  children,
+  title,
+  buttonText,
+  type,
+}) => {
+  const [values, setValues] = useState<TCallValues>({
+    dateTime: new Date(),
+    description: "",
+    link: "",
+  });
+
+  const [callDetails, setCallDetails] = useState<Call>();
+
+  const { toast } = useToast();
+
+  const { user } = useUser();
+  const client = useStreamVideoClient();
+
+  const router = useRouter();
+
+  const newMeetingHandler = async () => {
+    if (!client || !user) return;
+
+    try {
+      if (!values.dateTime) toast({ title: "Please select a date and time" });
+
+      const id = crypto.randomUUID();
+      const call = client.call("default", id);
+
+      if (!call) throw new Error("Failed to create call");
+
+      const startsAt =
+        values.dateTime.toISOString() || new Date(Date.now()).toISOString();
+      const description = values.description || "Instant meeting";
+
+      await call.getOrCreate({
+        data: {
+          starts_at: startsAt,
+          custom: {
+            description,
+          },
+        },
+      });
+
+      setCallDetails(call);
+
+      if (!values.description) router.push(`/meeting/${call.id}`);
+    } catch (error) {
+      console.log(error);
+      toast({ title: "Failed to create meeting" });
+    }
+  };
+
   return (
     <Dialog>
       <DialogTrigger className="flex justify-center w-full">
@@ -12,6 +69,7 @@ const MeetingModal: FC<TDialogProps> = ({ children, title, buttonText }) => {
         <h3 className="text-3xl font-bold text-text-1 mb-3">{title}</h3>
         <button
           type="button"
+          onClick={type === "new" ? newMeetingHandler : undefined}
           className="bg-blue-1 text-text-1 text-sm py-2 w-full px-4 rounded-md"
         >
           {buttonText}
