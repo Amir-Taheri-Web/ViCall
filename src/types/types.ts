@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type TLayout = Readonly<{
   children: React.ReactNode;
 }>;
@@ -41,4 +43,8 @@ export type TMeetingRoomProps = {
   params: {
     id: string;
   };
+};
+
+export type TMeetingSetupPageProps = {
+  setIsSetupComplete: Dispatch<SetStateAction<boolean>>;
 };
