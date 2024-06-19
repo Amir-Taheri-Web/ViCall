@@ -1,3 +1,5 @@
+"use client";
+
 import { TCallValues, TDialogProps } from "@/types/types";
 import { Dialog, DialogContent, DialogTrigger } from "@/ui/dialog";
 import { FC, useState } from "react";
@@ -5,6 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import { useStreamVideoClient, Call } from "@stream-io/video-react-sdk";
 import { useToast } from "@/ui/use-toast";
 import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const MeetingModal: FC<TDialogProps> = ({
   children,
@@ -20,6 +23,8 @@ const MeetingModal: FC<TDialogProps> = ({
 
   const [callDetails, setCallDetails] = useState<Call>();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const { toast } = useToast();
 
   const { user } = useUser();
@@ -29,6 +34,7 @@ const MeetingModal: FC<TDialogProps> = ({
 
   const newMeetingHandler = async () => {
     if (!client || !user) return;
+    setIsLoading(true);
 
     try {
       if (!values.dateTime) toast({ title: "Please select a date and time" });
@@ -57,6 +63,8 @@ const MeetingModal: FC<TDialogProps> = ({
     } catch (error) {
       console.log(error);
       toast({ title: "Failed to create meeting" });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -69,10 +77,14 @@ const MeetingModal: FC<TDialogProps> = ({
         <h3 className="text-3xl font-bold text-text-1 mb-3">{title}</h3>
         <button
           type="button"
+          disabled={isLoading}
           onClick={type === "new" ? newMeetingHandler : undefined}
-          className="bg-blue-1 text-text-1 text-sm py-2 w-full px-4 rounded-md"
+          className={cn(
+            "bg-blue-1 text-text-1 text-sm py-2 w-full px-4 rounded-md",
+            { "opacity-50": isLoading }
+          )}
         >
-          {buttonText}
+          {isLoading ? `${buttonText}...` : `${buttonText}`}
         </button>
       </DialogContent>
     </Dialog>

@@ -36,3 +36,9 @@ export type TCallValues = {
   description: string;
   link: string;
 };
+
+export type TMeetingRoomProps = {
+  params: {
+    id: string;
+  };
+};
