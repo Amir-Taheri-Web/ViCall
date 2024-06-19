@@ -59,7 +59,7 @@ const NavBar = () => {
                         className={cn(
                           "flex items-center gap-4 p-4 rounded-lg max-w-[250px]",
                           {
-                            "bg-blue-1": pathName.includes(item.link),
+                            "bg-blue-1": pathName.endsWith(item.link),
                           }
                         )}
                       >

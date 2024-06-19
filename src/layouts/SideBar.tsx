@@ -10,7 +10,7 @@ const SideBar = () => {
   const pathName = usePathname();
 
   return (
-    <aside className="bg-dark-2 h-full w-full lg:max-w-[264px] max-lg:w-fit p-6 pt-10 max-sm:hidden sticky overflow-hidden mt-[72px]">
+    <aside className="bg-dark-2 h-[calc(100vh-72px)] w-full lg:max-w-[264px] max-lg:w-fit p-6 pt-10 max-sm:hidden sticky overflow-hidden mt-[72px] top-[72px]">
       <nav>
         <ul className="flex flex-col gap-6">
           {SIDEBAR_LINKS.map((item) => (
@@ -18,7 +18,7 @@ const SideBar = () => {
               <Link
                 href={item.link}
                 className={cn("flex items-center gap-4 p-4 rounded-lg", {
-                  "bg-blue-1": pathName.includes(item.link),
+                  "bg-blue-1": pathName.endsWith(item.link),
                 })}
               >
                 <Image
