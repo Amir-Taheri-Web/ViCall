@@ -1,12 +1,10 @@
 import NavBar from "@/layouts/NavBar";
 import SideBar from "@/layouts/SideBar";
-import StreamProvider from "@/providers/StreamProvider";
 import { TLayout } from "@/types/types";
 import { FC } from "react";
 
 const HomeLayout: FC<TLayout> = ({ children }) => {
   return (
-    <StreamProvider>
       <div className="min-h-screen">
         <NavBar />
         <div className="flex h-full">
@@ -16,7 +14,6 @@ const HomeLayout: FC<TLayout> = ({ children }) => {
           </main>
         </div>
       </div>
-    </StreamProvider>
   );
 };
 

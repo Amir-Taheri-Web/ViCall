@@ -4,7 +4,7 @@ import { TLayout } from "@/types/types";
 import { FC } from "react";
 import AuthProvider from "@/providers/AuthProvider";
 import { Toaster } from "@/ui/toaster";
-import '@stream-io/video-react-sdk/dist/css/styles.css';
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

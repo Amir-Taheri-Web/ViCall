@@ -59,6 +59,7 @@ const MeetingModal: FC<TDialogProps> = ({
 
       setCallDetails(call);
 
+      toast({ title: "Meeting created" });
       if (!values.description) router.push(`/meeting/${call.id}`);
     } catch (error) {
       console.log(error);

@@ -29,6 +29,9 @@ const config = {
         yellow: {
           1: "#F9A90E",
         },
+        green: {
+          1: "#22c55e",
+        },
       },
 
       backgroundImage: {

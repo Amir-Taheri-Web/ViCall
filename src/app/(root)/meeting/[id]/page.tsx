@@ -14,7 +14,7 @@ const MeetingRoom: FC<TMeetingRoomProps> = ({ params: { id } }) => {
   const [isSetupComplete, setIsSetupComplete] = useState<boolean>(false);
   const { call, isCallLoading } = useGetCallById(id);
 
-  if (!isLoaded || !isCallLoading) return <Loader />;
+  if (!isLoaded || isCallLoading) return <Loader />;
 
   return (
     <article>

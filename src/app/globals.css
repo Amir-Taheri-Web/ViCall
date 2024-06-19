@@ -128,3 +128,26 @@
 .cl-avatarImageActionsUpload {
   color: #ffffff;
 }
+
+.str-video__menu-container {
+  background-color: #252a41 !important;
+  color: #ffffff !important;
+}
+
+.str-video__device-settings__device-kind .str-video__option--selected,
+.str-video__device-settings__device-kind .str-video__option--active,
+.str-video__device-settings__device-kind
+  .str-video__device-settings__option--selected,
+.str-video__device-settings__device-kind
+  .str-video__device-settings__option--active {
+  background-color: #1c1f2e !important;
+}
+
+.str-video__device-settings__device-kind .str-video__option,
+.str-video__device-settings__device-kind .str-video__device-settings__option {
+  background-color: #161925;
+}
+.str-video__video-preview-container {
+  width: 100% !important;
+  max-width: 500px !important;
+}
