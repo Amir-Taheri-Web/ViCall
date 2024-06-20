@@ -81,6 +81,13 @@ const MeetingModal: FC<TDialogProps> = ({
     setCallDetails(undefined);
   };
 
+  const joinHandler = () => {
+    if (!values.link)
+      toast({ title: "Please type the link first before joining" });
+
+    router.push(values.link);
+  };
+
   return (
     <Dialog>
       <DialogTrigger className="flex justify-center w-full">
@@ -135,6 +142,13 @@ const MeetingModal: FC<TDialogProps> = ({
             </div>
           </div>
         )}
+        {type === "join" && (
+          <input
+            type="text"
+            onChange={(e) => setValues({ ...values, link: e.target.value })}
+            className="w-full bg-dark-3 p-2 rounded-md text-text-1 border-none outline-none ring-0"
+          />
+        )}
         <button
           type="button"
           disabled={isLoading}
@@ -143,6 +157,8 @@ const MeetingModal: FC<TDialogProps> = ({
               ? newMeetingHandler
               : type === "schedule" && callDetails
               ? copyHandler
+              : type === "join"
+              ? joinHandler
               : undefined
           }
           className={cn(
