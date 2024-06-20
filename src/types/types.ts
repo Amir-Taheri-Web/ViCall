@@ -48,3 +48,5 @@ export type TMeetingRoomProps = {
 export type TMeetingSetupPageProps = {
   setIsSetupComplete: Dispatch<SetStateAction<boolean>>;
 };
+
+export type TCallLayout = "grid" | "speaker-left" | "speaker-right";
