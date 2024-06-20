@@ -101,3 +101,7 @@
 .str-video__participant-details .str-video__participant-details__name {
   color: #ffffff;
 }
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
