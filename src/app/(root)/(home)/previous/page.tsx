@@ -1,5 +1,7 @@
+import PreviousPage from "@/templates/PreviousPage";
+
 const Previous = () => {
-  return <div>Previous</div>;
+  return <PreviousPage />;
 };
 
 export default Previous;

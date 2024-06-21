@@ -44,3 +44,7 @@ export type TMeetingSetupPageProps = {
 };
 
 export type TCallLayout = "grid" | "speaker-left" | "speaker-right";
+
+export type TCardProps = {
+  type: "upcoming" | "previous" | "recordings";
+};

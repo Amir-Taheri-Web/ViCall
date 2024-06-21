@@ -1,5 +1,7 @@
+import RecordingsPage from "@/templates/RecordingsPage";
+
 const Recordings = () => {
-  return <div>Recordings</div>;
+  return <RecordingsPage />;
 };
 
 export default Recordings;

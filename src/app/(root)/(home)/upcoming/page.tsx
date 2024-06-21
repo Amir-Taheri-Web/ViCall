@@ -1,5 +1,7 @@
+import UpcomingPage from "@/templates/UpcomingPage";
+
 const Upcoming = () => {
-  return <div>Upcoming</div>;
+  return <UpcomingPage />;
 };
 
 export default Upcoming;
