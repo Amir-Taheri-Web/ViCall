@@ -9,8 +9,6 @@ const UpcomingPage = () => {
 
   if (isLoading) return <Loader />;
 
-  console.log(upcomingCalls);
-
   return (
     <article className="flex flex-col gap-8">
       <h2 className="text-3xl text-text-1 font-bold">Upcoming Meetings</h2>

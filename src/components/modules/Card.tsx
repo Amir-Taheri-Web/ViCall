@@ -26,8 +26,6 @@ const Card: FC<TCardProps> = ({ type, title, date, meetingLink }) => {
     toast({ title: "Link copied" });
   };
 
-  const playHandler = () => {};
-
   return (
     <li className="bg-dark-2 py-8 px-8 rounded-xl flex flex-col justify-between gap-8 max-xl:w-full xl:max-w-[600px]">
       <Image
@@ -117,7 +115,7 @@ const Card: FC<TCardProps> = ({ type, title, date, meetingLink }) => {
           <div className="flex max-sm:flex-col gap-2 max-sm:gap-4 w-full">
             <button
               type="button"
-              onClick={playHandler}
+              onClick={startHandler}
               className="bg-blue-1 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full"
             >
               <Image
@@ -132,6 +130,7 @@ const Card: FC<TCardProps> = ({ type, title, date, meetingLink }) => {
 
             <button
               type="button"
+              onClick={copyHandler}
               className="bg-dark-3 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full"
             >
               <Image
