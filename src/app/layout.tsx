@@ -13,6 +13,26 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ViCall",
   description: "Video and audio call and meetings",
+  icons: { icon: "./favicon.ico" },
+  authors: [{ name: "Amir Taheri", url: "https://github.com/Amir-Taheri-Web" }],
+  keywords: [
+    "video",
+    "video calling",
+    "audio",
+    "audio calling",
+    "meeting",
+    "video meeting",
+    "team meeting",
+    "zoom",
+    "meet",
+    "nextjs",
+    "next.js",
+    "nextjs 14",
+    "schedule",
+    "scheduling meeting",
+    "scheduling",
+    "schedule meeting",
+  ],
 };
 
 const RootLayout: FC<TLayout> = ({ children }) => {
