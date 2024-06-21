@@ -1,5 +1,7 @@
+import PersonalRoomPage from "@/templates/PersonalRoomPage";
+
 const PersonalRoom = () => {
-  return <div>PersonalRoom</div>;
+  return <PersonalRoomPage />;
 };
 
 export default PersonalRoom;
