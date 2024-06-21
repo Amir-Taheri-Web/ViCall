@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ViCall
+
+Video and audio calling and meeting website created with Next.js 14
+
+## Description
+
+The emphasis of this app is on Nextjs 14
 
 ## Getting Started
 
-First, run the development server:
+### Dependencies
 
-```bash
+- Next.js
+- React.js
+- PNPM
+- Tailwind([Link](https://tailwindcss.com/))
+- Shadcn([Link](https://ui.shadcn.com/))
+- GetStream([Link](https://getstream.io/))
+- React-datepicker([Link](https://www.npmjs.com/package/react-datepicker))
+
+### Installing
+
+- For running the project in DEVELOPMENT mode run the below code:
+
+```
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- For running the project in PRODUCTION mode run the below code:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npm install
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Help
 
-## Learn More
+If you have problem connecting to server use a VPN
 
-To learn more about Next.js, take a look at the following resources:
+## Authors
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Developed by Amir Taheri
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Github page](https://github.com/Amir-Taheri-Web)
