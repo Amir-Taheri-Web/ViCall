@@ -32,12 +32,3 @@ const MeetingRoom: FC<TMeetingRoomProps> = ({ params: { id } }) => {
 };
 
 export default MeetingRoom;
-
-export const generateMetadata = async ({
-  params: { id },
-}: TMeetingRoomProps) => {
-  return {
-    title: `Meeting ${id}`,
-    description: `ViCall meeting ${id}`,
-  };
-};
