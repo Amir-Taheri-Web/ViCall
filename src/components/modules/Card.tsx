@@ -1,3 +1,5 @@
+"use client";
+
 import { TCardProps } from "@/types/types";
 import { FC } from "react";
 import Image from "next/image";
@@ -7,8 +9,25 @@ import video from "@/public/icons/Video.svg";
 import copy from "@/public/icons/copy.svg";
 import play from "@/public/icons/play.svg";
 import share from "@/public/icons/share.svg";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/ui/use-toast";
 
-const Card: FC<TCardProps> = ({ type }) => {
+const Card: FC<TCardProps> = ({ type, title, date, meetingLink }) => {
+  const router = useRouter();
+
+  const { toast } = useToast();
+
+  const startHandler = () => {
+    router.push(meetingLink);
+  };
+
+  const copyHandler = () => {
+    navigator.clipboard.writeText(meetingLink);
+    toast({ title: "Link copied" });
+  };
+
+  const playHandler = () => {};
+
   return (
     <li className="bg-dark-2 py-8 px-8 rounded-xl flex flex-col justify-between gap-8 max-xl:w-full xl:max-w-[600px]">
       <Image
@@ -26,12 +45,8 @@ const Card: FC<TCardProps> = ({ type }) => {
       />
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-2xl text-text-1 font-bold">
-          Team Sync: Spirit Planning & Updates
-        </h3>
-        <span className="text-text-1 font-semibold">
-          March 15, 2024 - 10:00 AM
-        </span>
+        <h3 className="text-2xl text-text-1 font-bold">{title}</h3>
+        <span className="text-text-1 font-semibold">{date}</span>
       </div>
 
       <div className="flex justify-between flex-wrap gap-2">
@@ -72,8 +87,18 @@ const Card: FC<TCardProps> = ({ type }) => {
             </div>
             {type === "upcoming" && (
               <div className="flex-1 flex justify-end max-sm:justify-start gap-2">
-                <button type="button" className="bg-blue-1 px-3 py-1 rounded-md text-sm text-text-1 font-semibold h-[40px] min-w-[80px]">Start</button>
-                <button type="button" className="bg-dark-3 px-3 py-1 rounded-md flex items-center gap-2 text-sm text-text-1 font-semibold h-[40px] min-w-[80px]">
+                <button
+                  type="button"
+                  onClick={startHandler}
+                  className="bg-blue-1 px-3 py-1 rounded-md text-sm text-text-1 font-semibold h-[40px] min-w-[80px]"
+                >
+                  Start
+                </button>
+                <button
+                  type="button"
+                  onClick={copyHandler}
+                  className="bg-dark-3 px-3 py-1 rounded-md flex items-center gap-2 text-sm text-text-1 font-semibold h-[40px] min-w-[80px]"
+                >
                   <Image
                     src={copy}
                     alt="copy icon"
@@ -90,7 +115,11 @@ const Card: FC<TCardProps> = ({ type }) => {
 
         {type === "recordings" && (
           <div className="flex max-sm:flex-col gap-2 max-sm:gap-4 w-full">
-            <button type="button" className="bg-blue-1 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full">
+            <button
+              type="button"
+              onClick={playHandler}
+              className="bg-blue-1 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full"
+            >
               <Image
                 src={play}
                 alt="play icon"
@@ -101,7 +130,10 @@ const Card: FC<TCardProps> = ({ type }) => {
               Play
             </button>
 
-            <button type="button" className="bg-dark-3 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full">
+            <button
+              type="button"
+              className="bg-dark-3 px-3 py-1 h-[40px] rounded-md flex items-center gap-1 w-[50%] justify-center text-text-1 font-semibold text-sm max-sm:w-full"
+            >
               <Image
                 src={share}
                 alt="share icon"

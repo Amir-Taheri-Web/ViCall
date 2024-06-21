@@ -52,7 +52,7 @@ const MeetingModal: FC<TDialogProps> = ({
 
       const startsAt =
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
-      const description = values.description || "Instant meeting";
+      const description = values.description || "New meeting";
 
       await call.getOrCreate({
         data: {
